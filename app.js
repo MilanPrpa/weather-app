@@ -16,7 +16,7 @@ function searchWeather() {
 	http.onreadystatechange = function() {
 		if (http.readyState ===  XMLHttpRequest.DONE && http.status === 200) {
 			var data = JSON.parse(http.responseText);
-			var weatherData = new Weather(cityName, data.weather[0].description.toUpperCase());
+			var weatherData = new Weather(cityName, data.weather[0].description.toUpperCase(), data.main.humidity + ' %');
 			weatherData.temperature = data.main.temp;
 			console.log(weatherData);
 		} else if (http.readyState ===  XMLHttpRequest.DONE ) {
